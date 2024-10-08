@@ -10,6 +10,7 @@ body {
     background-color: #0C0C1A; /* Dark background (as fallback) */
     color: #B3B3B3; /* Soft gray */
     line-height: 1.6;
+    padding-top: 80px; /* Push content below the fixed navbar */
 }
 
 header {
@@ -17,7 +18,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: transparent;
+    background-color: #0C0C1A; /* Set navbar background color */
+    position: fixed; /* Keep the navbar fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for visual effect */
 }
 
 .logo img {
@@ -45,6 +51,11 @@ nav ul li a:hover {
     color: #00D4FF;
 }
 
+nav ul li a.active {
+    color: #00D4FF; /* Highlight the active link with cyan */
+    font-weight: 600; /* Make the active link bold */
+}
+
 nav ul li a:hover::after {
     content: "";
     position: absolute;
@@ -58,6 +69,7 @@ nav ul li a:hover::after {
 
 /* Hero Section with Background Image */
 .hero {
+    position: relative; /* Allow the hero section to scroll */
     display: flex;
     justify-content: center;
     align-items: center;

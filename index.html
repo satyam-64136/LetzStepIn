@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LetzStepIn</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,32 +14,88 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Download</a></li>
-                <li><a href="#">Sign in</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#signin">Sign in</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero Section with Background Image -->
+    <section id="hero" class="hero">
         <div class="hero-text">
             <h1>LetzStepIn - Explore Virtually</h1>
-            <p>Step into the Future: Your 360° Gateway to Lifestyle, Property, and Travel – Trusted, Verified, and Safe</p>
+            <p>Your trusted app for exploring properties, brands, and daily lifestyle needs in 360° or 3D.</p>
             <a href="#" class="btn">Explore Now</a>
         </div>
     </section>
 
     <!-- Company Description Section -->
-    <section class="description">
+    <section id="about" class="description">
         <h2>About LetzStepIn</h2>
         <p>Anyone & Everyone who owns physical Property/Business can! It helps your customer experience & explore your property/Brand's physical empire virtually in 360° or 3D to trust their decision-making on....LetzStepIn, India's one-stop Super app for most of the Daily Lifestyle, Property & Travel needs, offering users assured benefits, quality & safety, from our 360° trusted & verified vendor listings for better safety and protection of online users.</p>
+    </section>
+
+    <!-- Placeholder for Download and Signin -->
+    <section id="download">
+        <h2>Download the App</h2>
+        <p>Get started with LetzStepIn today by downloading the app!</p>
+    </section>
+
+    <section id="signin">
+        <h2>Sign In</h2>
+        <p>Already have an account? Sign in to LetzStepIn.</p>
     </section>
 
     <footer>
         <p>&copy; 2024 LetzStepIn. All rights reserved.</p>
         <p>www.letzstepin.com</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Active Navbar on Scroll
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('header nav a');
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                    });
+                }
+            });
+        };
+    
+        // Disable right-click on the logo
+        const logoDiv = document.querySelector('.logo');
+        logoDiv.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    
+        // Prevent dragging of the logo image (if using an img tag)
+        const logoImage = logoDiv.querySelector('img');
+        if (logoImage) {
+            logoImage.setAttribute('draggable', 'false');
+        }
+    
+        // Adding a transparent overlay on the logo
+        const logoOverlay = document.createElement('div');
+        logoOverlay.style.position = 'absolute';
+        logoOverlay.style.top = '0';
+        logoOverlay.style.left = '0';
+        logoOverlay.style.width = '150px';
+        logoOverlay.style.height = '50px';
+        logoOverlay.style.zIndex = '1';
+        logoOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+        logoDiv.appendChild(logoOverlay);
+    </script>
+    
 </body>
 </html>
