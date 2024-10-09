@@ -81,9 +81,7 @@
                     <p>Enjoy special offers from local vendors, available exclusively through LetzStepIn. Save big on lifestyle services, travel experiences, and daily essentials—all from your phone.</p>
                 </div>
             </div>
-    
             <div class="container">
-                <!-- Download Section Content -->
                 <a href="#" class="btn download-btn">Download Now</a>
             </div>
         </div>
@@ -122,7 +120,7 @@
     </footer>
 
     <script>
-        // Navigation Scroll Logic
+        // Navigation Scroll Logic or Section Detector
         let sections = document.querySelectorAll('section');
         let navLinks = document.querySelectorAll('header nav a');
         window.onscroll = () => {
@@ -139,8 +137,6 @@
                 }
             });
         };
-
-        // Prevent default for logo context menu
         const logoDiv = document.querySelector('.logo');
         logoDiv.addEventListener('contextmenu', function(e) {
             e.preventDefault();
@@ -150,10 +146,12 @@
         if (logoImage) {
             logoImage.setAttribute('draggable', 'false');
         }
-
-        // Modal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+        // Making the login Pop-UP
         const modal = document.getElementById('loginModal');
         const loginBtn = document.getElementById('loginBtn');
+
+        modal.style.display = 'none';
 
         loginBtn.addEventListener('click', function(event) {
             event.preventDefault();
@@ -175,6 +173,8 @@
                 document.body.classList.remove('modal-open');
             }
         }
+    });
+
     </script>
 </body>
 </html>
