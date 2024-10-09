@@ -17,56 +17,112 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About us</a></li>
                 <li><a href="#download">Download</a></li>
-                <li><a href="#signin">Sign in</a></li>
+                <li><a href="#" id="loginBtn">Sign in</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section with Background Image -->
     <section id="hero" class="hero">
         <div class="hero-text">
             <h1>LetzStepIn - Explore Virtually</h1>
             <p>Your trusted app for exploring properties, brands, and daily lifestyle needs in 360° or 3D.</p>
-            <a href="#" class="btn">Explore Now</a>
+            <a href="#" class="btn explore-btn">Explore Now</a>
         </div>
     </section>
 
-    <!-- Company Description Section -->
     <section id="about" class="description">
         <h2>About LetzStepIn</h2>
         <p>Anyone & Everyone who owns physical Property/Business can! It helps your customer experience & explore your property/Brand's physical empire virtually in 360° or 3D to trust their decision-making on....LetzStepIn, India's one-stop Super app for most of the Daily Lifestyle, Property & Travel needs, offering users assured benefits, quality & safety, from our 360° trusted & verified vendor listings for better safety and protection of online users.</p>
     </section>
 
-    <!-- Placeholder for Download and Signin -->
+            <!-- Download Section -->
     <section id="download" class="download-section">
-        <h2>India's Most-Awaited Immersive Super-App</h2>
-        <p>Discover nearby products and services with exciting offers and discounts—all in one place.</p>
-        
-        <p><strong>Experience the Future of Convenience</strong></p>
-        <p>LetzStepIn transforms how you shop and explore. Find exclusive local deals and enjoy 360° virtual experiences, allowing you to visit places from the comfort of your home.</p>
-        
-        <p><strong>Your Safety, Our Priority</strong></p>
-        <p>Shop confidently with verified and trusted vendors. We ensure a secure online experience, providing reliable listings and trusted reviews.</p>
-        
-        <p><strong>Exclusive Deals, Just for You</strong></p>
-        <p>Enjoy special offers from local vendors, available exclusively through LetzStepIn. Save big on lifestyle services, travel experiences, and daily essentials—all from your phone.</p>
-        
-        <a href="#" class="btn">Download Now</a>
-    </section> 
-
-    <section id="signin">
-        <h2>Sign In</h2>
-        <p>Already have an account? Sign in to LetzStepIn.</p>
+        <div class="container">
+            <!-- First Block: Text on the Left, Image on the Right -->
+            <div class="block">
+                <div class="content-left">
+                    <h2>India's Most-Awaited Immersive Super-App</h2>
+                    <p>Discover nearby products and services with exciting offers and discounts—all in one place.</p>
+                </div>
+                <div class="content-right">
+                    <img src="./images/app-mockup1.png" alt="App Mockup 1" class="mockup-image">
+                </div>
+            </div>
+            
+            <!-- Second Block: Image on the Left, Text on the Right -->
+            <div class="block">
+                <div class="content-left">
+                    <img src="./images/app-mockup2.png" alt="App Mockup 2" class="mockup-image">
+                </div>
+                <div class="content-right">
+                    <h2>Experience the Future of Convenience</h2>
+                    <p>LetzStepIn transforms how you shop and explore. Find exclusive local deals and enjoy 360° virtual experiences, allowing you to visit places from the comfort of your home.</p>
+                </div>
+            </div>
+    
+            <!-- Third Block: Text on the Left, Image on the Right -->
+            <div class="block">
+                <div class="content-left">
+                    <h2>Your Safety, Our Priority</h2>
+                    <p>Shop confidently with verified and trusted vendors. We ensure a secure online experience, providing reliable listings and trusted reviews.</p>
+                </div>
+                <div class="content-right">
+                    <img src="./images/app-mockup3.png" alt="App Mockup 3" class="mockup-image">
+                </div>
+            </div>
+    
+            <!-- Fourth Block: Image on the Left, Text on the Right -->
+            <div class="block">
+                <div class="content-left">
+                    <img src="./images/app-mockup4.png" alt="App Mockup 4" class="mockup-image">
+                </div>
+                <div class="content-right">
+                    <h2>Exclusive Deals, Just for You</h2>
+                    <p>Enjoy special offers from local vendors, available exclusively through LetzStepIn. Save big on lifestyle services, travel experiences, and daily essentials—all from your phone.</p>
+                </div>
+            </div>
+    
+            <div class="container">
+                <!-- Download Section Content -->
+                <a href="#" class="btn download-btn">Download Now</a>
+            </div>
+        </div>
+    </section>    
     </section>
+
+    <!-- Modal -->
+    <div class="modal" id="loginModal">
+        <div class="wrapper">
+            <div class="title-text">
+                <div class="title">Login Form</div>
+            </div>
+            <form class="login">
+                <div class="field">
+                    <input type="text" placeholder="Email Address" required>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="pass-link">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <div class="field btn">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">
+                    Not a member? <a href="#">Signup now</a>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2024 LetzStepIn. All rights reserved.</p>
         <p>www.letzstepin.com</p>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Active Navbar on Scroll
+        // Navigation Scroll Logic
         let sections = document.querySelectorAll('section');
         let navLinks = document.querySelectorAll('header nav a');
         window.onscroll = () => {
@@ -83,30 +139,42 @@
                 }
             });
         };
-    
-        // Disable right-click on the logo
+
+        // Prevent default for logo context menu
         const logoDiv = document.querySelector('.logo');
         logoDiv.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
-    
-        // Prevent dragging of the logo image (if using an img tag)
+
         const logoImage = logoDiv.querySelector('img');
         if (logoImage) {
             logoImage.setAttribute('draggable', 'false');
         }
-    
-        // Adding a transparent overlay on the logo
-        const logoOverlay = document.createElement('div');
-        logoOverlay.style.position = 'absolute';
-        logoOverlay.style.top = '0';
-        logoOverlay.style.left = '0';
-        logoOverlay.style.width = '150px';
-        logoOverlay.style.height = '50px';
-        logoOverlay.style.zIndex = '1';
-        logoOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-        logoDiv.appendChild(logoOverlay);
+
+        // Modal Logic
+        const modal = document.getElementById('loginModal');
+        const loginBtn = document.getElementById('loginBtn');
+
+        loginBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            modal.style.display = 'flex';
+            document.body.classList.add('modal-open');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+        });
+
+        const closeButton = document.querySelector('.close-button');
+        if (closeButton) {
+            closeButton.onclick = function() {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+        }
     </script>
-    
 </body>
 </html>
