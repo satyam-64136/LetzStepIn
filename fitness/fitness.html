@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lean Fitness Studio - Hyderabad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section with Navbar -->
+    <header>
+        <div class="logo">
+            <img src="./images/logo13.png" alt="LetzStepIn Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#workouts">Workouts/Amenities</a></li>
+                <li><a href="#packages">Packages</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- VR Tour and About Gym Section Combined -->
+    <section id="home" class="vr-about-section">
+        <div class="content-wrapper">
+            <div class="iframe-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!4v1728451270988!6m8!1m7!1sCAoSLEFGMVFpcE1mblpDSmdLT2pVSWlhTUR6a2s4NEhUNzZjLXQzYkdyTENlLXZH!2m2!1d17.47949250400566!2d78.56230766408427!3f289.4864001958424!4f-6.780306379928902!5f0.7820865974627469" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="about-content">
+                <div class="gym-header">
+                    <img src="./images/gym-logo.jpg" alt="Gym Logo" class="gym-logo">
+                    <div class="gym-info">
+                        <h1>Lean Fitness Studio</h1>
+                        <div class="star-rating">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="address">H.No. 12-345, Street No. 4, XYZ Colony, Kukatpally, Hyderabad, Telangana 500072</p>
+                <p>At Lean Fitness Studio, we believe that fitness is a journey tailored to each individual. Our approach revolves around understanding the unique goals and lifestyles of our members, ensuring that every workout aligns with their aspirations.</p>
+                <p>Over the years, we have witnessed countless transformations and the joy that comes with achieving personal milestones. Located in the thriving area of Kukatpally, we provide a welcoming environment equipped with the latest technology and expert trainers, all while fostering a community that supports and motivates each other.</p>
+                <p>Whether you’re a beginner or a seasoned athlete, Lean Fitness Studio is committed to helping you unlock your potential in a space designed for both challenge and camaraderie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workouts Section -->
+    <section id="workouts" class="workouts-section">
+        <h2>Workouts</h2>
+        <div class="workout-types">
+            <h3>Strength Training</h3>
+            <p>Explore our range of strength training equipment and programs designed for all levels.</p>
+            <h3>Group Classes</h3>
+            <p>Join our exciting group classes, including yoga, Zumba, and kickboxing!</p>
+            <h3>Personal Training</h3>
+            <p>Get personalized attention and customized plans from our certified trainers.</p>
+        </div>
+        <h2>Amenities</h2>
+        <div class="amenity-list">
+            <h3>Locker Room</h3>
+            <p>Secure and spacious locker rooms for your convenience.</p>
+            <h3>Changing Room</h3>
+            <p>Private changing areas to help you freshen up before and after workouts.</p>
+            <h3>Resistance Bands</h3>
+            <p>Variety of resistance bands available for versatile training.</p>
+            <h3>Maintenance Support</h3>
+            <p>Our equipment is regularly maintained to ensure a safe and effective workout.</p>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <h2>Membership Packages</h2>
+        <div class="text-content">
+            <p>Choose a package that suits your fitness goals and lifestyle. We offer flexible membership plans with plenty of benefits.</p>
+        </div>
+        <div class="package-grid">
+            <div class="package">
+                <h3>Basic Plan</h3>
+                <p>₹1,500 per month - Access to gym equipment, group workout sessions, and cardio areas.</p>
+            </div>
+            <div class="package">
+                <h3>Premium Plan</h3>
+                <p>₹3,000 per month - Includes personal training sessions, access to special group classes (like yoga and Zumba).</p>
+            </div>
+            <div class="package">
+                <h3>Annual Plan</h3>
+                <p>₹25,000 per year - Full access to all amenities, including spa, steam room, and personalized nutrition plans.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lean Fitness Studio. All rights reserved.</p>
+        <p>www.letzstepin.com</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stars = document.querySelectorAll('.star-rating .star');
+
+            stars.forEach((star, idx) => {
+                star.addEventListener('click', () => {
+                    stars.forEach(star => {
+                        star.classList.remove('active');
+                    });
+                    for (let i = 0; i <= idx; i++) {
+                        stars[i].classList.add('active');
+                    }
+                });
+
+                star.addEventListener('mouseover', () => {
+                    stars.forEach((s, i) => {
+                        s.style.color = (i <= idx) ? '#ffcc00' : '#b3b3b3';
+                    });
+                });
+
+                star.addEventListener('mouseout', () => {
+                    stars.forEach((s, i) => {
+                        s.style.color = s.classList.contains('active') ? '#ffcc00' : '#b3b3b3';
+                    });
+                });
+            });
+
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('header nav a');
+            window.onscroll = () => {
+                sections.forEach(sec => {
+                    let top = window.scrollY;
+                    let offset = sec.offsetTop - 150;
+                    let height = sec.offsetHeight;
+                    let id = sec.getAttribute('id');
+                    if (top >= offset && top < offset + height) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                        });
+                    }
+                });
+            };
+
+            const logoDiv = document.querySelector('.logo');
+            logoDiv.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+
+            const logoImage = logoDiv.querySelector('img');
+            if (logoImage) {
+                logoImage.setAttribute('draggable', 'false');
+            }
+        });
+    </script>
+</body>
+</html>

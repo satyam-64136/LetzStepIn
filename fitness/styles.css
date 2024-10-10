@@ -1,0 +1,246 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 60px;
+}
+
+* {
+    margin-bottom: 30;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0C0C1A;
+    color: #B3B3B3;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.0em;
+    color: #B3B3B3;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background-color: #0C0C1A;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    width: 120px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+}
+
+nav ul li a:hover {
+    color: #00D4FF;
+}
+
+nav ul li a.active {
+    color: #00D4FF;
+    font-weight: 600;
+}
+
+nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #00D4FF;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .iframe-container, .about-content {
+        width: 100%;
+    }
+
+    .iframe-container iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .gym-header h1 {
+        font-size: 1.8em;
+    }
+
+    .gym-logo {
+        width: 50px;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.vr-about-section {
+    padding: 100px 20px;
+    background-color: #0C0C1A;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.iframe-container {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-content {
+    flex: 1;
+    padding-left: 20px;
+    color: #FFFFFF;
+}
+
+.gym-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.gym-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gym-logo {
+    width: 60px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.gym-info h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    font-size: 18px;
+    color: #b3b3b3;
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #b3b3b3;
+}
+
+.star.active,
+.star.active ~ .star {
+    color: #ffcc00;
+}
+
+.address {
+    font-size: 1em;
+    color: #B3B3B3;
+    line-height: 1.5;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #B3B3B3;
+}
+
+.about-content strong {
+    font-size: 1.5em;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.packages-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.package {
+    background-color: #1A1A2E;
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 50 auto;
+}
+
+.package:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00D4FF;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #B3B3B3;
+    background-color: #0C0C1A;
+}

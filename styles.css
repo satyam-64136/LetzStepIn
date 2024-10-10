@@ -160,7 +160,6 @@ nav ul li a:hover::after {
     background-color: #0099CC;
 }
 
-/* Login Button */
 #loginBtn {
     color: #ffffff;
     cursor: pointer;
@@ -171,7 +170,6 @@ nav ul li a:hover::after {
     color: #0099CC;
 }
 
-/* Company Description Section */
 .description {
     padding: 60px 20px;
     text-align: center;
