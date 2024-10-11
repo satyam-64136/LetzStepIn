@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LetzStepIn</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LetzStepIn</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/ScrollTrigger.min.js"></script>
+    </head>
 <body>
-                <!-- Navbar -->
+
+    <!-- Navbar -->
     <header>
         <div class="logo">
-            <img src="./images/logo13.png" alt="LetzStepIn Logo">
+            <img src="./images/logo13.png" alt="LetzStepIn Logo" draggable="false">
         </div>
         <nav>
             <ul>
@@ -23,6 +26,7 @@
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-text">
             <h1>LetzStepIn - Explore Virtually</h1>
@@ -31,12 +35,27 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="description">
-        <h2>About LetzStepIn</h2>
-        <p>Anyone & Everyone who owns physical Property/Business can! It helps your customer experience & explore your property/Brand's physical empire virtually in 360° or 3D to trust their decision-making on....LetzStepIn, India's one-stop Super app for most of the Daily Lifestyle, Property & Travel needs, offering users assured benefits, quality & safety, from our 360° trusted & verified vendor listings for better safety and protection of online users.</p>
+        <div class="text desktop-version">
+            <h2>Welcome to <span class="highlight">LetzStepIn</span></h2>
+            <p><span class="highlight">LetzStepIn</span> empowers <em>everyone</em> who owns property or a business to showcase their space in an immersive and engaging way.</p>
+            <p>Offer your customers an unforgettable experience by letting them explore your property or brand <strong>virtually</strong> in <strong>360° or 3D</strong> – building trust and confidence in their decisions.</p>
+            <p>We are India’s ultimate Super App for <strong>lifestyle, property, and travel</strong> needs, bringing together everything you need in one place.</p>
+            <p>With our 360° trusted and verified vendors, we ensure <strong>quality, safety, and benefits</strong> for a secure experience.</p>
+            <p>Step into the future of seamless experiences with <span class="highlight">LetzStepIn</span> – your trusted partner for a smarter tomorrow.</p>
+        </div>
+    
+        <div class="text mobile-version">
+            <h2>Welcome to <span class="highlight">LetzStepIn</span></h2>
+            <p><span class="highlight">LetzStepIn</span> lets property and business owners showcase their spaces with immersive <strong>360° or 3D virtual experiences</strong>.</p>
+            <p>India’s all-in-one app for <strong>lifestyle, property, and travel</strong>, trusted for quality, safety, and benefits through verified vendors.</p>
+            <p>Enhance decisions, build trust, and step into the future with <span class="highlight">LetzStepIn</span>.</p>
+        </div>
     </section>
-
-            <!-- Download Section -->
+    
+    
+    <!-- Download Section -->
     <section id="download" class="download-section">
         <div class="container">
             <!-- First Block: Text on the Left, Image on the Right -->
@@ -46,14 +65,14 @@
                     <p>Discover nearby products and services with exciting offers and discounts—all in one place.</p>
                 </div>
                 <div class="content-right">
-                    <img src="./images/app-mockup1.png" alt="App Mockup 1" class="mockup-image">
+                    <img src="./images/app mockup 1.jpg" alt="App Mockup 1" class="mockup-image">
                 </div>
             </div>
             
             <!-- Second Block: Image on the Left, Text on the Right -->
             <div class="block">
                 <div class="content-left">
-                    <img src="./images/app-mockup2.png" alt="App Mockup 2" class="mockup-image">
+                    <img src="./images/app mockup 2.jpg" alt="App Mockup 2" class="mockup-image">
                 </div>
                 <div class="content-right">
                     <h2>Experience the Future of Convenience</h2>
@@ -68,14 +87,14 @@
                     <p>Shop confidently with verified and trusted vendors. We ensure a secure online experience, providing reliable listings and trusted reviews.</p>
                 </div>
                 <div class="content-right">
-                    <img src="./images/app-mockup3.png" alt="App Mockup 3" class="mockup-image">
+                    <img src="./images/app mockup 3.jpg" alt="App Mockup 3" class="mockup-image">
                 </div>
             </div>
     
             <!-- Fourth Block: Image on the Left, Text on the Right -->
             <div class="block">
                 <div class="content-left">
-                    <img src="./images/app-mockup4.png" alt="App Mockup 4" class="mockup-image">
+                    <img src="./images/app mockup 4.jpg" alt="App Mockup 4" class="mockup-image">
                 </div>
                 <div class="content-right">
                     <h2>Exclusive Deals, Just for You</h2>
@@ -86,10 +105,9 @@
                 <a href="#" class="btn download-btn">Download Now</a>
             </div>
         </div>
-    </section>    
     </section>
 
-    <!-- Modal(login popup) -->
+    <!-- Modal (login popup) -->
     <div class="modal" id="loginModal">
         <div class="wrapper">
             <div class="title-text">
@@ -122,60 +140,59 @@
 
     <script>
         // Navigation Scroll Logic or Section Detector
-        let sections = document.querySelectorAll('section');
-        let navLinks = document.querySelectorAll('header nav a');
-        window.onscroll = () => {
-            sections.forEach(sec => {
-                let top = window.scrollY;
-                let offset = sec.offsetTop - 150;
-                let height = sec.offsetHeight;
-                let id = sec.getAttribute('id');
-                if (top >= offset && top < offset + height) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-                    });
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('header nav a');
+
+            window.addEventListener('scroll', () => {
+                const top = window.scrollY;
+                sections.forEach(section => {
+                    const offset = section.offsetTop - 150;
+                    const height = section.offsetHeight;
+                    const id = section.getAttribute('id');
+
+                    if (top >= offset && top < offset + height) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        document.querySelector(`header nav a[href="#${id}"]`).classList.add('active');
+                    }
+                });
+            });
+
+            const logoDiv = document.querySelector('.logo');
+            logoDiv.addEventListener('contextmenu', (e) => e.preventDefault());
+
+            const modal = document.getElementById('loginModal');
+            const loginBtn = document.getElementById('loginBtn');
+
+            modal.style.display = 'none';
+
+            loginBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                modal.style.display = 'flex';
+                document.body.classList.add('modal-open');
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    document.body.classList.remove('modal-open');
                 }
             });
-        };
-        const logoDiv = document.querySelector('.logo');
-        logoDiv.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+
+            // GSAP Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.text p').forEach((p) => {
+                gsap.to(p, {
+                    scrollTrigger: {
+                        trigger: p,
+                        start: "top 80%",
+                        toggleClass: 'revealed',
+                        end: "bottom 25%",
+                    }
+                });
+            });
         });
-
-        const logoImage = logoDiv.querySelector('img');
-        if (logoImage) {
-            logoImage.setAttribute('draggable', 'false');
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-        // Making the login Pop-UP
-        const modal = document.getElementById('loginModal');
-        const loginBtn = document.getElementById('loginBtn');
-
-        modal.style.display = 'none';
-
-        loginBtn.addEventListener('click', function(event) {
-            event.preventDefault();
-            modal.style.display = 'flex';
-            document.body.classList.add('modal-open');
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-                document.body.classList.remove('modal-open');
-            }
-        });
-
-        const closeButton = document.querySelector('.close-button');
-        if (closeButton) {
-            closeButton.onclick = function() {
-                modal.style.display = 'none';
-                document.body.classList.remove('modal-open');
-            }
-        }
-    });
-
     </script>
 </body>
 </html>

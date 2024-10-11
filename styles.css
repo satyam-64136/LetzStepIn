@@ -33,18 +33,6 @@ header {
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background-color: rgba(0, 0, 0, 0.2);
-    filter: blur(10px);
-    z-index: -1;
-}
-
 .logo img {
     width: 150px;
 }
@@ -66,13 +54,9 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #00D4FF;
-}
-
+nav ul li a:hover,
 nav ul li a.active {
     color: #00D4FF;
-    font-weight: 600;
 }
 
 nav ul li a:hover::after {
@@ -86,9 +70,8 @@ nav ul li a:hover::after {
     transition: all 0.3s ease;
 }
 
-/* Hero Section with Background Image */
+/* Hero Section */
 .hero {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,13 +81,11 @@ nav ul li a:hover::after {
     background-image: url("./images/BACKGROUNG.jpeg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .hero-text {
     max-width: 600px;
-    z-index: 1;
 }
 
 .hero h1 {
@@ -116,13 +97,10 @@ nav ul li a:hover::after {
 
 .hero p {
     font-size: 1.2em;
-    color: #B3B3B3;
     margin-bottom: 30px;
 }
 
-/* Explore Now Button */
 .explore-btn {
-    display: inline-block;
     padding: 15px;
     background-color: #00D4FF;
     color: #0C0C1A;
@@ -138,7 +116,66 @@ nav ul li a:hover::after {
     background-color: #0099CC;
 }
 
-/* Download Button */
+.text p {
+    opacity: 0.05;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.text p.revealed {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.description {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.description h2 {
+    font-size: 3.5em;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.description p {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+.highlight {
+    color: #00D4FF;
+}
+
+#loginBtn {
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
+.mobile-version {
+    display: none;
+}
+
+/* Show desktop version on large screens */
+.desktop-version {
+    display: block;
+}
+
+#loginBtn:hover {
+    color: #0099CC;
+}
+
+/* Download Section */
+.download-section {
+    background-color: #0C0C1A;
+    color: #FFFFFF;
+    padding: 60px 20px;
+}
+
 .download-btn {
     display: flex;
     flex-direction: column;
@@ -160,43 +197,6 @@ nav ul li a:hover::after {
     background-color: #0099CC;
 }
 
-#loginBtn {
-    color: #ffffff;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-#loginBtn:hover {
-    color: #0099CC;
-}
-
-.description {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.description h2 {
-    font-size: 2.5em;
-    color: #FFFFFF;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-.description p {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.2em;
-    color: #B3B3B3;
-    line-height: 1.8;
-}
-
-/* Download Section */
-.download-section {
-    background-color: #0C0C1A;
-    color: #FFFFFF;
-    padding: 60px 20px;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -211,7 +211,6 @@ nav ul li a:hover::after {
     flex-wrap: wrap;
 }
 
-/* Left and Right Content */
 .content-left, .content-right {
     flex: 1;
     margin: 20px;
@@ -225,7 +224,6 @@ nav ul li a:hover::after {
 
 .content-left p, .content-right p {
     font-size: 1.2em;
-    color: #B3B3B3;
     line-height: 1.8;
 }
 
@@ -236,7 +234,6 @@ nav ul li a:hover::after {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Design for Mobile */
 @media screen and (max-width: 768px) {
     .block {
         flex-direction: column;
@@ -255,25 +252,30 @@ nav ul li a:hover::after {
         min-width: 150px;
         padding: 12px 20px;
     }
+    .mobile-version {
+        display: block;
+    }
+    .desktop-version {
+        display: none;
+    }
 }
 
 /* Modal (Popup) */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    left: 0; 
-    top: 0; 
-    width: 100%; 
-    height: 100%; 
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Wrapper for the modal (centered popup) */
+/* Wrapper for the modal */
 .wrapper {
     max-width: 400px;
     width: 100%;
@@ -282,21 +284,14 @@ nav ul li a:hover::after {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.7);
-    opacity: 90%;
 }
 
 /* Title */
-.title-text {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
 .title {
     font-size: 35px;
     font-weight: 600;
     text-align: center;
-    color: #fff;
+    color: #FFFFFF;
 }
 
 /* Form Fields */
@@ -310,17 +305,12 @@ nav ul li a:hover::after {
     padding-left: 15px;
     border-radius: 15px;
     border: 1px solid lightgrey;
-    border-bottom-width: 2px;
     font-size: 17px;
     transition: all 0.3s ease;
 }
 
 .field input:focus {
     border-color: #1a75ff;
-}
-
-.field input::placeholder {
-    color: #999;
 }
 
 .field input[type="submit"] {
@@ -350,12 +340,6 @@ nav ul li a:hover::after {
 .pass-link a,
 .signup-link a {
     color: #1a75ff;
-    text-decoration: none;
-}
-
-.pass-link a:hover,
-.signup-link a:hover {
-    text-decoration: underline;
 }
 
 footer {
