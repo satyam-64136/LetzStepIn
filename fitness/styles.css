@@ -4,8 +4,8 @@ html {
 }
 
 * {
-    margin-bottom: 30;
-    padding: 0;
+    margin: 0; /* Set margin to 0 for all elements */
+    padding: 0; 
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -26,8 +26,7 @@ h2 {
 }
 
 p {
-    font-size: 1.0em;
-    color: #B3B3B3;
+    font-size: 1em; /* Simplified font-size */
 }
 
 header {
@@ -71,10 +70,7 @@ nav ul li a {
     padding: 10px 0;
 }
 
-nav ul li a:hover {
-    color: #00D4FF;
-}
-
+nav ul li a:hover,
 nav ul li a.active {
     color: #00D4FF;
     font-weight: 600;
@@ -89,6 +85,18 @@ nav ul li a:hover::after {
     height: 2px;
     background-color: #00D4FF;
     transition: all 0.3s ease;
+}
+
+.iframe-container {
+    overflow: hidden; /* Ensures the rounded corners are effective */
+    border-radius: 15px; /* Adjust the value as needed */
+    margin: auto;
+}
+
+iframe {
+    width: 100vh; /* Make iframe responsive */
+    height: 50vh; /* Make iframe responsive */
+    border: 0; /* Remove any border */
 }
 
 @media screen and (max-width: 768px) {
@@ -132,10 +140,6 @@ nav ul li a:hover::after {
     max-width: 100%;
 }
 
-.iframe-container {
-    flex: 1;
-    max-width: 600px;
-}
 
 .about-content {
     flex: 1;
@@ -158,7 +162,6 @@ nav ul li a:hover::after {
 
 .gym-logo {
     width: 60px;
-    height: auto;
     border-radius: 8px;
 }
 
@@ -182,13 +185,8 @@ nav ul li a:hover::after {
 }
 
 .star:hover,
-.star:hover ~ .star {
-    color: #b3b3b3;
-}
-
-.star.active,
-.star.active ~ .star {
-    color: #ffcc00;
+.star.active {
+    color: #ffcc00; /* Combined hover and active styles */
 }
 
 .address {
@@ -201,7 +199,6 @@ nav ul li a:hover::after {
     font-size: 1.1em;
     line-height: 1.8;
     margin-bottom: 15px;
-    color: #B3B3B3;
 }
 
 .about-content strong {
@@ -209,6 +206,45 @@ nav ul li a:hover::after {
     color: #FFFFFF;
     margin-bottom: 15px;
     display: block;
+}
+
+.custom-workouts-section {
+    padding: 50px 20px;
+    background-color: #1A1A2E;
+    text-align: center;
+    color: #B3B3B3;
+}
+
+.custom-workouts-section h2 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.workout-types {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.workout-card {
+    background-color: #252541;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workout-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #00D4FF;
+}
+
+.workout-card h3 {
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
 .packages-section {
@@ -236,6 +272,98 @@ nav ul li a:hover::after {
 .package:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px #00D4FF;
+}
+
+.business-hours {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.business-hours h1 {
+    font-size: 3em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.business-hours p {
+    font-size: 1.2em;
+    color: #B3B3B3;
+    margin-bottom: 40px;
+}
+
+.hours-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hours-table th, .hours-table td {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1.1em;
+    color: #FFFFFF;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hours-table th {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.hours-table tr:last-child td {
+    border-bottom: none;
+}
+
+.hours-table td {
+    background-color: transparent;
+}
+
+.hours-table tr:hover {
+    background-color: rgba(0, 212, 255, 0.1);
+}
+
+.highlight {
+    color: #00D4FF;
+}
+
+/* Button Styling */
+.back-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #00D4FF;
+    color: #0C0C1A;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF;
+    margin-top: 30px;
+}
+
+.back-btn:hover {
+    background-color: #0099CC;
+}
+
+@media screen and (max-width: 768px) {
+    .hours-table {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .hours-table th, .hours-table td {
+        padding: 10px;
+    }
+
+    .business-hours h1 {
+        font-size: 2.5em;
+    }
 }
 
 footer {
