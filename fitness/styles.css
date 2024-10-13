@@ -1,10 +1,11 @@
+/* General Global Styles */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 60px;
 }
 
-* {
-    margin: 0; /* Set margin to 0 for all elements */
+* {scroll-behavior: smooth;
+    margin: 0;
     padding: 0; 
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -16,6 +17,7 @@ body {
     line-height: 1.6;
 }
 
+/* Typography */
 h1, h2, h3 {
     color: #FFFFFF;
     margin-bottom: 10px;
@@ -26,9 +28,10 @@ h2 {
 }
 
 p {
-    font-size: 1em; /* Simplified font-size */
+    font-size: 1em;
 }
 
+/* Header & Navbar */
 header {
     display: flex;
     justify-content: space-between;
@@ -52,9 +55,6 @@ nav ul {
     list-style: none;
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -87,6 +87,30 @@ nav ul li a:hover::after {
     transition: all 0.3s ease;
 }
 
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon img {
+    width: 30px; /* Adjust icon size */
+    height: auto;
+}
+
+
+/* VR Tour and About Section */
+.vr-about-section {
+    padding: 100px 20px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
 .iframe-container {
     overflow: hidden; /* Ensures the rounded corners are effective */
     border-radius: 15px; /* Adjust the value as needed */
@@ -98,53 +122,14 @@ iframe {
     height: 50vh; /* Make iframe responsive */
     border: 0; /* Remove any border */
 }
-
-@media screen and (max-width: 768px) {
-    .content-wrapper {
-        flex-direction: column;
-    }
-
-    .iframe-container, .about-content {
-        width: 100%;
-    }
-
-    .iframe-container iframe {
-        width: 100%;
-        height: 300px;
-    }
-
-    .gym-header h1 {
-        font-size: 1.8em;
-    }
-
-    .gym-logo {
-        width: 50px;
-    }
-
-    .package-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.vr-about-section {
-    padding: 100px 20px;
-    background-color: #0C0C1A;
-}
-
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    max-width: 100%;
-}
-
-
+/* About content for desktop */
 .about-content {
-    flex: 1;
+    flex: 0 0 70%; /* About content takes 75% of width */
     padding-left: 20px;
     color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .gym-header {
@@ -152,12 +137,6 @@ iframe {
     align-items: center;
     gap: 15px;
     margin-bottom: 15px;
-}
-
-.gym-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .gym-logo {
@@ -169,7 +148,6 @@ iframe {
     font-size: 2.2em;
     font-weight: bold;
     margin: 0;
-    color: #FFFFFF;
 }
 
 .star-rating {
@@ -186,67 +164,99 @@ iframe {
 
 .star:hover,
 .star.active {
-    color: #ffcc00; /* Combined hover and active styles */
+    color: #ffcc00;
 }
 
-.address {
-    font-size: 1em;
-    color: #B3B3B3;
-    line-height: 1.5;
+/* Workouts and Amenities Section */
+.workout-amenities-section {
+    padding: 40px 20px;
+    background-color: #171329;
 }
 
-.about-content p {
-    font-size: 1.1em;
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
-
-.about-content strong {
-    font-size: 1.5em;
-    color: #FFFFFF;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.custom-workouts-section {
-    padding: 50px 20px;
-    background-color: #1A1A2E;
-    text-align: center;
-    color: #B3B3B3;
-}
-
-.custom-workouts-section h2 {
-    color: #FFFFFF;
+.section-heading h2 {
+    font-size: 1.8em;
+    color: #ffffff;
     margin-bottom: 20px;
-    font-size: 2.5em;
 }
 
-.workout-types {
+.workouts-container {
+    position: relative; /* Allow absolute positioning of buttons */
+    overflow: hidden; /* Prevent any overflow */
+    padding: 20px 0; /* Space for buttons */
+}
+
+.workouts-grid {
+    overflow-x: auto; /* Enable horizontal scroll */
+    white-space: nowrap; /* Prevent wrapping */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.workouts-grid, .amenities-grid {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 15px;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scroll */
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* For Firefox */
+    white-space: nowrap; /* Keep items inline */
 }
 
-.workout-card {
-    background-color: #252541;
-    padding: 20px;
-    border-radius: 10px;
-    width: 200px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.workout-item, .amenity-item {
+    text-align: center;
+    flex-basis: 19%;
+    flex: 0 0 150px; /* Keep a fixed width per item */
+    margin: 10px;
+    text-align: center;
+    white-space: normal; /* Allow text to wrap inside items */
 }
 
-.workout-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px #00D4FF;
-}
-
-.workout-card h3 {
-    color: #FFFFFF;
+.workout-item img, .amenity-item img {
+    max-width: 50px;
     margin-bottom: 10px;
-    font-size: 1.5em;
 }
 
+/* Amenities Horizontal Scroll */
+.amenities-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+
+.amenities-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.scroll-btn img {
+    width: 24px;
+    height: auto;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+/* Packages Section */
 .packages-section {
     display: flex;
     flex-direction: column;
@@ -266,7 +276,6 @@ iframe {
     padding: 20px;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 50 auto;
 }
 
 .package:hover {
@@ -274,6 +283,7 @@ iframe {
     box-shadow: 0 0 15px #00D4FF;
 }
 
+/* Business Hours Section */
 .business-hours {
     max-width: 1200px;
     margin: 0 auto;
@@ -283,14 +293,7 @@ iframe {
 
 .business-hours h1 {
     font-size: 3em;
-    color: #FFFFFF;
     margin-bottom: 20px;
-}
-
-.business-hours p {
-    font-size: 1.2em;
-    color: #B3B3B3;
-    margin-bottom: 40px;
 }
 
 .hours-table {
@@ -321,19 +324,17 @@ iframe {
     border-bottom: none;
 }
 
-.hours-table td {
-    background-color: transparent;
-}
-
 .hours-table tr:hover {
     background-color: rgba(0, 212, 255, 0.1);
 }
 
-.highlight {
-    color: #00D4FF;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
 }
 
-/* Button Styling */
+/* Back Button */
 .back-btn {
     display: inline-block;
     padding: 15px 30px;
@@ -351,24 +352,72 @@ iframe {
     background-color: #0099CC;
 }
 
-@media screen and (max-width: 768px) {
-    .hours-table {
+/* Mobile Responsive Styling */
+@media (max-width: 768px) 
+{
+    /* Ensure the iframe stays responsive */
+.iframe-container {
+    position: relative;
+    width: 100%; /* Full width of the parent */
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    height: 0; /* Height will be controlled by padding */
+    overflow: hidden;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Remove any border */
+}
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .amenity-item {
+        flex: 0 0 120px; /* Reduce item size for smaller screens */
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr; /* Single column layout for packages */
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the header */
+        right: 0;
+        background-color: #0C0C1A;
         width: 100%;
-        margin-bottom: 40px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .hours-table th, .hours-table td {
-        padding: 10px;
+    /* Show nav when toggled */
+    nav ul.nav-active {
+        display: flex;
     }
 
-    .business-hours h1 {
-        font-size: 2.5em;
+    /* Show hamburger icon */
+    .menu-icon {
+        display: block;
+    }
+    
+    /* Style for nav items when expanded */
+    nav ul li {
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 18px;
     }
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #B3B3B3;
-    background-color: #0C0C1A;
+@media (max-width: 480px) {
+    .amenity-item {
+        flex: 0 0 100px; /* Further reduce item size on mobile */
+    }
 }

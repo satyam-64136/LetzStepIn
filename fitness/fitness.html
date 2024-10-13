@@ -14,13 +14,17 @@
             <img src="./images/logo13.png" alt="LetzStepIn Logo">
         </div>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#workouts">Workouts/Amenities</a></li>
                 <li><a href="#packages">Packages</a></li>
             </ul>
         </nav>
+        <div class="menu-icon">
+            <img src="./images/icons/menu-icon.png" alt="Menu Icon">
+        </div>
     </header>
+    
 
     <!-- VR Tour and About Gym Section Combined -->
     <section id="home" class="vr-about-section">
@@ -49,30 +53,88 @@
         </div>
     </section>
 
-    <!-- Workouts Section -->
-    <section id="workouts" class="workouts-section">
-        <h2>Workouts</h2>
-        <div class="workout-types">
-            <h3>Strength Training</h3>
-            <p>Explore our range of strength training equipment and programs designed for all levels.</p>
-            <h3>Group Classes</h3>
-            <p>Join our exciting group classes, including yoga, Zumba, and kickboxing!</p>
-            <h3>Personal Training</h3>
-            <p>Get personalized attention and customized plans from our certified trainers.</p>
+   <!-- Workouts Section -->
+   <section class="workout-amenities-section">
+    <div class="section-heading">
+        <h2>Workouts Available</h2>
+    </div>
+    <div class="workouts-container">
+        <button class="scroll-btn left-btn">
+            <img src="./images/icons/left-arrow.png" alt="Left" />
+        </button>
+        <div class="workouts-grid">
+            <div class="workout-item">
+                <img src="./images/icons/cardio.png" alt="Cardio">
+                <p>Cardio</p>
+            </div>
+            <div class="workout-item">
+                <img src="./images/icons/martial-arts.png" alt="Martial Arts">
+                <p>Martial Arts</p>
+            </div>
+            <div class="workout-item">
+                <img src="./images/icons/cross-fitness.png" alt="Cross Fitness">
+                <p>Cross Fitness</p>
+            </div>
+            <div class="workout-item">
+                <img src="./images/icons/zumba.png" alt="Zumba">
+                <p>Zumba</p>
+            </div>
+            <div class="workout-item">
+                <img src="./images/icons/yoga.png" alt="Yoga">
+                <p>Yoga</p>
+            </div>
+            <div class="workout-item">
+                <img src="./images/icons/Deadlift.png" alt="Deadlift">
+                <p>Deadlift</p>
+            </div>
         </div>
-        <h2>Amenities</h2>
-        <div class="amenity-list">
-            <h3>Locker Room</h3>
-            <p>Secure and spacious locker rooms for your convenience.</p>
-            <h3>Changing Room</h3>
-            <p>Private changing areas to help you freshen up before and after workouts.</p>
-            <h3>Resistance Bands</h3>
-            <p>Variety of resistance bands available for versatile training.</p>
-            <h3>Maintenance Support</h3>
-            <p>Our equipment is regularly maintained to ensure a safe and effective workout.</p>
-        </div>
-    </section>
+        <button class="scroll-btn right-btn">
+            <img src="./images/icons/right-arrow.png" alt="Right" />
+        </button>
+    </div>
 
+    <div class="section-heading">
+        <h2>Amenities</h2>
+    </div>
+    <div class="amenities-container">
+        <button class="scroll-btn left-btn">
+            <img src="./images/icons/left-arrow.png" alt="Left" />
+        </button>
+        <div class="amenities-grid">
+            <div class="amenity-item">
+                <img src="./images/icons/Nutritionist.png" alt="Nutritionist">
+                <p>Nutritionist</p>
+            </div>
+            <div class="amenity-item">
+                <img src="./images/icons/Food-Cafeteria.png" alt="Food Cafeteria">
+                <p>Food Cafeteria</p>
+            </div>
+            <div class="amenity-item">
+                <img src="./images/icons/Parking-Facility.png" alt="Parking Facility">
+                <p>Parking Facility</p>
+            </div>
+            <div class="amenity-item">
+                <img src="./images/icons/Locker-Facility.png" alt="Locker Facility">
+                <p>Locker Facility</p>
+            </div>
+            <div class="amenity-item">
+                <img src="./images/icons/Swimming-Pool.png" alt="Swimming Pool">
+                <p>Swimming Pool</p>
+            </div>
+            <div class="amenity-item">
+                <img src="./images/icons/Restroom.png" alt="Restroom">
+                <p>Restroom</p>
+            </div>
+            <div class="amenity-item">
+                <img src="./images/icons/Shower.png" alt="Shower">
+                <p>Shower</p>
+            </div>
+        </div>
+        <button class="scroll-btn right-btn">
+            <img src="./images/icons/right-arrow.png" alt="Right" />
+        </button>
+    </div>
+</section>
 
     <!-- Packages Section -->
     <section id="packages" class="packages-section">
@@ -150,59 +212,70 @@
 
     <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const stars = document.querySelectorAll('.star-rating .star');
+document.addEventListener('DOMContentLoaded', () => {
+    // Menu toggle functionality
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('nav ul');
 
-            stars.forEach((star, idx) => {
-                star.addEventListener('click', () => {
-                    stars.forEach(star => {
-                        star.classList.remove('active');
-                    });
-                    for (let i = 0; i <= idx; i++) {
-                        stars[i].classList.add('active');
-                    }
-                });
+    menuIcon?.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+    });
 
-                star.addEventListener('mouseover', () => {
-                    stars.forEach((s, i) => {
-                        s.style.color = (i <= idx) ? '#ffcc00' : '#b3b3b3';
-                    });
-                });
+    // Star rating functionality
+    const stars = document.querySelectorAll('.star-rating .star');
 
-                star.addEventListener('mouseout', () => {
-                    stars.forEach((s, i) => {
-                        s.style.color = s.classList.contains('active') ? '#ffcc00' : '#b3b3b3';
-                    });
-                });
+    stars.forEach((star, idx) => {
+        star.addEventListener('click', () => {
+            stars.forEach(star => {
+                star.classList.remove('active');
             });
-
-            let sections = document.querySelectorAll('section');
-            let navLinks = document.querySelectorAll('header nav a');
-            window.onscroll = () => {
-                sections.forEach(sec => {
-                    let top = window.scrollY;
-                    let offset = sec.offsetTop - 150;
-                    let height = sec.offsetHeight;
-                    let id = sec.getAttribute('id');
-                    if (top >= offset && top < offset + height) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-                        });
-                    }
-                });
-            };
-
-            const logoDiv = document.querySelector('.logo');
-            logoDiv.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-            });
-
-            const logoImage = logoDiv.querySelector('img');
-            if (logoImage) {
-                logoImage.setAttribute('draggable', 'false');
+            for (let i = 0; i <= idx; i++) {
+                stars[i].classList.add('active');
             }
         });
+
+        star.addEventListener('mouseover', () => {
+            stars.forEach((s, i) => {
+                s.style.color = (i <= idx) ? '#ffcc00' : '#b3b3b3';
+            });
+        });
+
+        star.addEventListener('mouseout', () => {
+            stars.forEach((s, i) => {
+                s.style.color = s.classList.contains('active') ? '#ffcc00' : '#b3b3b3';
+            });
+        });
+    });
+
+    // Scroll-based section highlight functionality
+    const sections = document.querySelectorAll('section');
+    const navLinkEls = document.querySelectorAll('header nav a');
+    window.addEventListener('scroll', () => {
+        let scrollPosition = window.scrollY;
+        sections.forEach(section => {
+            let sectionTop = section.offsetTop - 150;
+            let sectionHeight = section.offsetHeight;
+            let sectionId = section.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinkEls.forEach(link => {
+                    link.classList.remove('active');
+                    document.querySelector(`header nav a[href*=${sectionId}]`)?.classList.add('active');
+                });
+            }
+        });
+    });
+
+    // Prevent right-click and drag on logo
+    const logoDiv = document.querySelector('.logo');
+    logoDiv?.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+    });
+
+    const logoImage = logoDiv?.querySelector('img');
+    logoImage?.setAttribute('draggable', 'false');
+});
+
     </script>
 </body>
 </html>
