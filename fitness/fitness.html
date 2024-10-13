@@ -277,6 +277,53 @@ window.addEventListener('scroll', () => {
 });
 
 
+
+// Scroll functionality for workouts and amenities sections
+document.addEventListener('DOMContentLoaded', () => {
+    const leftBtns = document.querySelectorAll('.left-btn');
+    const rightBtns = document.querySelectorAll('.right-btn');
+    const workoutsGrid = document.querySelector('.workouts-grid');
+    const amenitiesGrid = document.querySelector('.amenities-grid');
+
+    // Scroll distance (you can adjust the scroll step size)
+    const scrollAmount = 300;
+
+    // Scroll left function
+    leftBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            if (idx === 0) {
+                workoutsGrid.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                amenitiesGrid.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Scroll right function
+    rightBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            if (idx === 0) {
+                workoutsGrid.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                amenitiesGrid.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+
+
     </script>
 </body>
 </html>
