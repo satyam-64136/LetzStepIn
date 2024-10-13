@@ -19,7 +19,7 @@
                 <li><a href="#workouts">Workouts/Amenities</a></li>
                 <li><a href="#packages">Packages</a></li>
             </ul>
-        </nav>
+        </nav>        
         <div class="menu-icon">
             <img src="./images/icons/menu-icon.png" alt="Menu Icon">
         </div>
@@ -54,7 +54,7 @@
     </section>
 
    <!-- Workouts Section -->
-   <section class="workout-amenities-section">
+   <section id="workouts" class="workout-amenities-section"> 
     <div class="section-heading">
         <h2>Workouts Available</h2>
     </div>
@@ -223,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Star rating functionality
     const stars = document.querySelectorAll('.star-rating .star');
-
     stars.forEach((star, idx) => {
         star.addEventListener('click', () => {
             stars.forEach(star => {
@@ -248,23 +247,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Scroll-based section highlight functionality
-    const sections = document.querySelectorAll('section');
-    const navLinkEls = document.querySelectorAll('header nav a');
-    window.addEventListener('scroll', () => {
-        let scrollPosition = window.scrollY;
-        sections.forEach(section => {
-            let sectionTop = section.offsetTop - 150;
-            let sectionHeight = section.offsetHeight;
-            let sectionId = section.getAttribute('id');
+// Scroll-based section highlight functionality
+const sections = document.querySelectorAll('section');
+const navLinkEls = document.querySelectorAll('header nav a');
+window.addEventListener('scroll', () => {
+    let scrollPosition = window.scrollY;
+    sections.forEach(section => {
+        let sectionTop = section.offsetTop - 150; // Adjust for header height
+        let sectionHeight = section.offsetHeight;
+        let sectionId = section.getAttribute('id');
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinkEls.forEach(link => {
-                    link.classList.remove('active');
-                    document.querySelector(`header nav a[href*=${sectionId}]`)?.classList.add('active');
-                });
-            }
-        });
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinkEls.forEach(link => {
+                link.classList.remove('active');
+                document.querySelector(`header nav a[href="#${sectionId}"]`)?.classList.add('active');
+            });
+        }
     });
+});
 
     // Prevent right-click and drag on logo
     const logoDiv = document.querySelector('.logo');
@@ -275,6 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoImage = logoDiv?.querySelector('img');
     logoImage?.setAttribute('draggable', 'false');
 });
+
 
     </script>
 </body>
