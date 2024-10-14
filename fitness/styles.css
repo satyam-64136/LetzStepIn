@@ -112,25 +112,40 @@ nav ul li a:hover::after {
 }
 
 .iframe-container {
+    flex: 1; /* Let the iframe container take up 50% of the space */
+    max-width: 45%; /* Ensures it doesn’t stretch too far */
     overflow: hidden; /* Ensures the rounded corners are effective */
     border-radius: 15px; /* Adjust the value as needed */
     margin: auto;
 }
 
-iframe {
-    width: 100vh; /* Make iframe responsive */
-    height: 50vh; /* Make iframe responsive */
+.iframe-container iframe {
+    width: 100%; /* Ensure iframe fills its container */
+    height: 100%; /* Make iframe responsive */
     border: 0; /* Remove any border */
+    aspect-ratio: 16/9; /* Maintain a responsive aspect ratio */
 }
-/* About content for desktop */
+
 .about-content {
-    flex: 0 0 70%; /* About content takes 75% of width */
+    flex: 1; /* Let the about content take up 50% of the space */
+    max-width: 45%;
     padding-left: 20px;
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Stack vertically on smaller screens */
+    }
+    .iframe-container, .about-content {
+        max-width: 100%; /* Full width on small screens */
+    }
+}
+
 
 .gym-header {
     display: flex;
@@ -257,18 +272,27 @@ iframe {
 }
 
 /* Packages Section */
+/* Packages Section */
 .packages-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 60px 20px;
+    background-color: #171329;
     text-align: center;
+    color: #ffffff;
+}
+
+.packages-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.packages-section .text-content {
+    margin-bottom: 30px;
 }
 
 .package-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
 }
 
 .package {
@@ -276,12 +300,50 @@ iframe {
     padding: 20px;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .package:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px #00D4FF;
 }
+
+.package h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.package ul {
+    list-style: none;
+    padding: 0;
+}
+
+.package ul li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.package ul li strong {
+    color: #00D4FF;
+}
+
+/* Responsive Styles for Packages Section */
+@media (max-width: 768px) {
+    .packages-section h2 {
+        font-size: 2em;
+    }
+    
+    .package-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .package ul li {
+        font-size: 1em;
+    }
+}
+
 
 /* Business Hours Section */
 .business-hours {

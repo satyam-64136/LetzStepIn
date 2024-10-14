@@ -19,7 +19,7 @@
                 <li><a href="#workouts">Workouts/Amenities</a></li>
                 <li><a href="#packages">Packages</a></li>
             </ul>
-        </nav>
+        </nav>        
         <div class="menu-icon">
             <img src="./images/icons/menu-icon.png" alt="Menu Icon">
         </div>
@@ -54,7 +54,7 @@
     </section>
 
    <!-- Workouts Section -->
-   <section class="workout-amenities-section">
+   <section id="workouts" class="workout-amenities-section"> 
     <div class="section-heading">
         <h2>Workouts Available</h2>
     </div>
@@ -137,26 +137,40 @@
 </section>
 
     <!-- Packages Section -->
-    <section id="packages" class="packages-section">
-        <h2>Membership Packages</h2>
-        <div class="text-content">
-            <p>Choose a package that suits your fitness goals and lifestyle. We offer flexible membership plans with plenty of benefits.</p>
+<!-- Packages Section -->
+<section id="packages" class="packages-section">
+    <h2>Membership Packages</h2>
+    <div class="text-content">
+        <p>Choose a package that suits your fitness goals and lifestyle. We offer flexible membership plans with plenty of benefits.</p>
+    </div>
+    <div class="package-grid">
+        <div class="package">
+            <h3>Strength Training Offer</h3>
+            <ul>
+                <li>3 MONTHS <strong>₹2999/-</strong></li>
+                <li>6 MONTHS <strong>₹4999/-</strong></li>
+                <li>12 MONTHS <strong>₹9999/-</strong></li>
+            </ul>
         </div>
-        <div class="package-grid">
-            <div class="package">
-                <h3>Basic Plan</h3>
-                <p>₹1,500 per month - Access to gym equipment, group workout sessions, and cardio areas.</p>
-            </div>
-            <div class="package">
-                <h3>Premium Plan</h3>
-                <p>₹3,000 per month - Includes personal training sessions, access to special group classes (like yoga and Zumba).</p>
-            </div>
-            <div class="package">
-                <h3>Annual Plan</h3>
-                <p>₹25,000 per year - Full access to all amenities, including spa, steam room, and personalized nutrition plans.</p>
-            </div>
+        <div class="package">
+            <h3>Strength + Cardio Offer</h3>
+            <ul>
+                <li>3 MONTHS <strong>₹3999/-</strong></li>
+                <li>6 MONTHS <strong>₹6499/-</strong></li>
+                <li>12 MONTHS <strong>₹11999/-</strong></li>
+            </ul>
         </div>
-    </section>
+        <div class="package">
+            <h3>Strength + Cardio + Crossfit Offer</h3>
+            <ul>
+                <li>3 MONTHS <strong>₹4999/-</strong></li>
+                <li>6 MONTHS <strong>₹8499/-</strong></li>
+                <li>12 MONTHS <strong>₹14999/-</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 
     <!-- Business Hours Section -->
     <div class="business-hours">
@@ -223,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Star rating functionality
     const stars = document.querySelectorAll('.star-rating .star');
-
     stars.forEach((star, idx) => {
         star.addEventListener('click', () => {
             stars.forEach(star => {
@@ -248,23 +261,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Scroll-based section highlight functionality
-    const sections = document.querySelectorAll('section');
-    const navLinkEls = document.querySelectorAll('header nav a');
-    window.addEventListener('scroll', () => {
-        let scrollPosition = window.scrollY;
-        sections.forEach(section => {
-            let sectionTop = section.offsetTop - 150;
-            let sectionHeight = section.offsetHeight;
-            let sectionId = section.getAttribute('id');
+// Scroll-based section highlight functionality
+const sections = document.querySelectorAll('section');
+const navLinkEls = document.querySelectorAll('header nav a');
+window.addEventListener('scroll', () => {
+    let scrollPosition = window.scrollY;
+    sections.forEach(section => {
+        let sectionTop = section.offsetTop - 150; // Adjust for header height
+        let sectionHeight = section.offsetHeight;
+        let sectionId = section.getAttribute('id');
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinkEls.forEach(link => {
-                    link.classList.remove('active');
-                    document.querySelector(`header nav a[href*=${sectionId}]`)?.classList.add('active');
-                });
-            }
-        });
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinkEls.forEach(link => {
+                link.classList.remove('active');
+                document.querySelector(`header nav a[href="#${sectionId}"]`)?.classList.add('active');
+            });
+        }
     });
+});
 
     // Prevent right-click and drag on logo
     const logoDiv = document.querySelector('.logo');
@@ -275,6 +289,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoImage = logoDiv?.querySelector('img');
     logoImage?.setAttribute('draggable', 'false');
 });
+
+
+
+// Scroll functionality for workouts and amenities sections
+document.addEventListener('DOMContentLoaded', () => {
+    const leftBtns = document.querySelectorAll('.left-btn');
+    const rightBtns = document.querySelectorAll('.right-btn');
+    const workoutsGrid = document.querySelector('.workouts-grid');
+    const amenitiesGrid = document.querySelector('.amenities-grid');
+
+    // Scroll distance (you can adjust the scroll step size)
+    const scrollAmount = 300;
+
+    // Scroll left function
+    leftBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            if (idx === 0) {
+                workoutsGrid.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                amenitiesGrid.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Scroll right function
+    rightBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            if (idx === 0) {
+                workoutsGrid.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                amenitiesGrid.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+
 
     </script>
 </body>
