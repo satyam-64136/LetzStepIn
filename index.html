@@ -11,20 +11,22 @@
     </head>
 <body>
 
-    <!-- Navbar -->
     <header>
         <div class="logo">
             <img src="./images/logo13.png" alt="LetzStepIn Logo" draggable="false">
         </div>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About us</a></li>
                 <li><a href="#download">Download</a></li>
                 <li><a href="#" id="loginBtn">Sign in</a></li>
             </ul>
+            <!-- Menu icon for mobile -->
+            <img src="fitness/images/icons/menu-icon.png" alt="Menu Icon" class="menu-icon" id="menuIcon">
         </nav>
     </header>
+    
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -139,6 +141,15 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.getElementById('menuIcon');
+    const nav = document.querySelector('nav');
+
+    menuIcon.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+});
+
         // Navigation Scroll Logic or Section Detector
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
@@ -186,9 +197,9 @@
                 gsap.to(p, {
                     scrollTrigger: {
                         trigger: p,
-                        start: "top 80%",
+                        start: "top 77%",
                         toggleClass: 'revealed',
-                        end: "bottom 25%",
+                        end: "bottom 35%",
                     }
                 });
             });
