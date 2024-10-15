@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-/* General Global Styles */
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 60px;
@@ -328,490 +327,81 @@ nav ul li a:hover::after {
     color: #00D4FF;
 }
 
-/* Responsive Styles for Packages Section */
-@media (max-width: 768px) {
-    .packages-section h2 {
-        font-size: 2em;
-    }
-    
-    .package-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
+/* Discounted price styling */
+.discount {
+    text-decoration: line-through;
+    color: #B0B0B0; /* Light Gray for crossed-out price */
+    margin-left: 10px;
 }
 
-@media (max-width: 480px) {
-    .package ul li {
-        font-size: 1em;
-    }
+/* Offer selection styling */
+.offer-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Semi-transparent gray border */
+    border-radius: 5px;
+    cursor: pointer;
+    color: #B0B0B0; /* Light Gray for secondary text */
 }
 
-
-/* Business Hours Section */
-.business-hours {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    text-align: center;
+.offer-option input[type="radio"] {
+    margin-right: 10px;
 }
 
-.business-hours h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+.offer-option:hover {
+    background-color: #1F2A44; /* Lighter Dark Slate */
 }
 
-.hours-table {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+.offer-option.selected {
+    border: 2px solid #00BFFF; /* Bright Aqua when selected */
+    background-color: #1F2A44; /* Lighter Dark Slate */
 }
 
-.hours-table th, .hours-table td {
-    padding: 15px 20px;
-    text-align: left;
-    font-size: 1.1em;
-    color: #FFFFFF;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hours-table th {
-    background-color: rgba(255, 255, 255, 0.1);
-    font-weight: 600;
-}
-
-.hours-table tr:last-child td {
-    border-bottom: none;
-}
-
-.hours-table tr:hover {
-    background-color: rgba(0, 212, 255, 0.1);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-}
-
-/* Back Button */
-.back-btn {
+/* Proceed to Checkout Button */
+.checkout-button {
     display: inline-block;
+    background-color: #00D4FF; /* Bright Aqua */
+    color: #0C0C1A; /* Dark text */
     padding: 15px 30px;
-    background-color: #00D4FF;
-    color: #0C0C1A;
-    font-size: 1.2em;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF;
-    margin-top: 30px;
-}
-
-.back-btn:hover {
-    background-color: #0099CC;
-}
-
-/* Mobile Responsive Styling */
-@media (max-width: 768px) 
-{
-    /* Ensure the iframe stays responsive */
-.iframe-container {
-    position: relative;
-    width: 100%; /* Full width of the parent */
-    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
-    height: 0; /* Height will be controlled by padding */
-    overflow: hidden;
-}
-
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0; /* Remove any border */
-}
-
-    .content-wrapper {
-        flex-direction: column;
-    }
-
-    .amenity-item {
-        flex: 0 0 120px; /* Reduce item size for smaller screens */
-    }
-
-    .package-grid {
-        grid-template-columns: 1fr; /* Single column layout for packages */
-    }
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px; /* Below the header */
-        right: 0;
-        background-color: #0C0C1A;
-        width: 100%;
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Show nav when toggled */
-    nav ul.nav-active {
-        display: flex;
-    }
-
-    /* Show hamburger icon */
-    .menu-icon {
-        display: block;
-    }
-    
-    /* Style for nav items when expanded */
-    nav ul li {
-        padding: 10px 0;
-    }
-
-    nav ul li a {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .amenity-item {
-        flex: 0 0 100px; /* Further reduce item size on mobile */
-    }
-}
-=======
-/* General Global Styles */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 60px;
-}
-
-* {scroll-behavior: smooth;
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background-color: #0C0C1A;
-    color: #B3B3B3;
-    line-height: 1.6;
-}
-
-/* Typography */
-h1, h2, h3 {
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 2.5em;
-}
-
-p {
-    font-size: 1em;
-}
-
-/* Header & Navbar */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    padding: 0 20px;
-    background-color: #0C0C1A;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-}
-
-.logo img {
-    width: 120px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-size: 14px;
-    position: relative;
-    transition: color 0.3s ease;
-    padding: 10px 0;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    color: #00D4FF;
-    font-weight: 600;
-}
-
-nav ul li a:hover::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background-color: #00D4FF;
-    transition: all 0.3s ease;
-}
-
-.menu-icon {
-    display: none;
-    cursor: pointer;
-}
-
-.menu-icon img {
-    width: 30px; /* Adjust icon size */
-    height: auto;
-}
-
-
-/* VR Tour and About Section */
-.vr-about-section {
-    padding: 100px 20px;
-}
-
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.iframe-container {
-    flex: 1; /* Let the iframe container take up 50% of the space */
-    max-width: 45%; /* Ensures it doesn’t stretch too far */
-    overflow: hidden; /* Ensures the rounded corners are effective */
-    border-radius: 15px; /* Adjust the value as needed */
-    margin: auto;
-}
-
-.iframe-container iframe {
-    width: 100%; /* Ensure iframe fills its container */
-    height: 100%; /* Make iframe responsive */
-    border: 0; /* Remove any border */
-    aspect-ratio: 16/9; /* Maintain a responsive aspect ratio */
-}
-
-.about-content {
-    flex: 1; /* Let the about content take up 50% of the space */
-    max-width: 45%;
-    padding-left: 20px;
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .content-wrapper {
-        flex-direction: column; /* Stack vertically on smaller screens */
-    }
-    .iframe-container, .about-content {
-        max-width: 100%; /* Full width on small screens */
-    }
-}
-
-
-.gym-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.gym-logo {
-    width: 60px;
-    border-radius: 8px;
-}
-
-.gym-info h1 {
-    font-size: 2.2em;
-    font-weight: bold;
-    margin: 0;
-}
-
-.star-rating {
-    display: flex;
-    align-items: center;
-}
-
-.star {
-    font-size: 18px;
-    color: #b3b3b3;
-    cursor: pointer;
-    margin-right: 3px;
-}
-
-.star:hover,
-.star.active {
-    color: #ffcc00;
-}
-
-/* Workouts and Amenities Section */
-.workout-amenities-section {
-    padding: 40px 20px;
-    background-color: #171329;
-}
-
-.section-heading h2 {
-    font-size: 1.8em;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.workouts-container {
-    position: relative; /* Allow absolute positioning of buttons */
-    overflow: hidden; /* Prevent any overflow */
-    padding: 20px 0; /* Space for buttons */
-}
-
-.workouts-grid {
-    overflow-x: auto; /* Enable horizontal scroll */
-    white-space: nowrap; /* Prevent wrapping */
-    scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-.workouts-grid, .amenities-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Enable horizontal scroll */
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* For Firefox */
-    white-space: nowrap; /* Keep items inline */
-}
-
-.workout-item, .amenity-item {
-    text-align: center;
-    flex-basis: 19%;
-    flex: 0 0 150px; /* Keep a fixed width per item */
-    margin: 10px;
-    text-align: center;
-    white-space: normal; /* Allow text to wrap inside items */
-}
-
-.workout-item img, .amenity-item img {
-    max-width: 50px;
-    margin-bottom: 10px;
-}
-
-/* Amenities Horizontal Scroll */
-.amenities-container {
-    position: relative;
-    overflow: hidden;
-    padding: 20px 0;
-}
-
-
-.amenities-grid::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari */
-}
-
-
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
     border: none;
-    padding: 5px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.scroll-btn img {
-    width: 24px;
-    height: auto;
-}
-
-.left-btn {
-    left: 10px;
-}
-
-.right-btn {
-    right: 10px;
-}
-
-/* Packages Section */
-/* Packages Section */
-.packages-section {
-    padding: 60px 20px;
-    background-color: #171329;
-    text-align: center;
-    color: #ffffff;
-}
-
-.packages-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.packages-section .text-content {
-    margin-bottom: 30px;
-}
-
-.package-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.package {
-    background-color: #1A1A2E;
-    padding: 20px;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
-
-.package:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #00D4FF;
-}
-
-.package h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.package ul {
-    list-style: none;
-    padding: 0;
-}
-
-.package ul li {
-    margin: 10px 0;
+    border-radius: 50px;
     font-size: 1.2em;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
-.package ul li strong {
-    color: #00D4FF;
+.checkout-button:hover {
+    background-color: #0099CC; /* Deeper Aqua on hover */
+}
+
+.checkout-button:focus {
+    outline: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+/* Responsive Styles for Packages Section */
+@media (max-width: 768px) {
+    .packages-section h2 {
+        font-size: 2em;
+    }
+    
+    .package-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .package ul li {
+        font-size: 1em;
+    }
 }
 
 /* Responsive Styles for Packages Section */
@@ -970,4 +560,49 @@ iframe {
         flex: 0 0 100px; /* Further reduce item size on mobile */
     }
 }
->>>>>>> origin/main
+
+/* Contact Card Styles */
+.contact-card {
+    background-color: #1A1A2E; /* Dark Slate */
+    color: #EAEAEA; /* Soft White */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Soft Black */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Semi-Transparent Gray */
+    width: 100%; /* Full width of the parent */
+    margin: 20px 0; /* Vertical spacing */
+}
+
+.contact-card h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #EAEAEA; /* Soft White */
+    flex: 1; /* Allow header to take available space */
+}
+
+.contact-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 1.2em;
+    color: #B0B0B0; /* Light Gray for secondary text */
+}
+
+.contact-info span {
+    display: flex;
+    align-items: center;
+}
+
+.contact-info span:hover {
+    color: #00BFFF; /* Bright Aqua on hover */
+}
+
+/* Responsive Styles for Contact Card */
+@media screen and (max-width: 768px) {
+    .contact-card {
+        display: none;
+    }
+}
