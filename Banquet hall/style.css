@@ -156,8 +156,8 @@ iframe {
 }
 
 .availability-check-form label {
-    font-size: 12px;
-    color: #B0B0B0;
+    font-size: 14px;
+    color: #e9e9e9a9;
 }
 
 .availability-check-form input,
@@ -259,17 +259,17 @@ iframe {
 
 .services-grid, .amenities-grid {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Align items to the left */
     align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    white-space: nowrap;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping in the items */
+    padding-bottom: 10px; /* Optional: Add some space below the grid */
 }
 
 .service-item, .amenity-item {
     text-align: center;
-    flex-basis: 19%;
-    flex: 0 0 150px;
+    flex: 0 0 auto; /* Allow items to retain their size without shrinking */
     margin: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
@@ -289,8 +289,18 @@ iframe {
     color: #FFFFFF;
     font-size: 1em;
 }
-.amenities-grid::-webkit-scrollbar,.service-grid::-webkit-scrollbar {
-    display: none;
+
+.amenities-grid::-webkit-scrollbar, .services-grid::-webkit-scrollbar {
+    height: 8px; /* Set the height of the scrollbar */
+}
+
+.amenities-grid::-webkit-scrollbar-thumb, .services-grid::-webkit-scrollbar-thumb {
+    background: #00D4FF; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded edges for the scrollbar */
+}
+
+.amenities-grid::-webkit-scrollbar-track, .services-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Background color of the scrollbar track */
 }
 
 .scroll-btn {
@@ -318,10 +328,6 @@ iframe {
 .services-section, .amenities-section {
     position: relative;
     padding: 0 40px;
-}
-
-.services-grid::-webkit-scrollbar, .amenities-grid::-webkit-scrollbar {
-    display: none;
 }
 
 @media (max-width: 768px) {
