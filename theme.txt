@@ -20,9 +20,3 @@ Semi-Transparent Gray: rgba(255, 255, 255, 0.1) (for subtle borders)
 Shadow Color:
 
 Soft Black: rgba(0, 0, 0, 0.5) (for box shadows)
-Example Usage
-Background: Use #1A1A2E for your body and section backgrounds.
-Text: Use #EAEAEA for main text, and #B0B0B0 for secondary text.
-Buttons: Use #00BFFF for button backgrounds, and change to #009ACD on hover.
-Borders: Apply rgba(255, 255, 255, 0.1) for borders around elements.
-Shadows: Use rgba(0, 0, 0, 0.5) for box shadows to add depth.
