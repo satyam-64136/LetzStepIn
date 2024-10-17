@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gayatri Vihar Banquet</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
     <header>
         <div class="logo">
             <img src="./images/logo13.png" alt="LetzStepin Logo">
@@ -18,22 +17,19 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#amenities">Amenities</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#review">review</a></li>
             </ul>
             <div class="menu-icon" id="menuIcon">
                 <img src="./images/menu-icon.png" alt="Menu Icon">
             </div>
         </nav>
     </header>
-    
     <section id="about" class="vr-about-section">
+        <h1>Gayatri Vihar Banquet</h1>
         <div class="content-wrapper" style="display: flex; gap: 40px;">
             <div class="iframe-about-container" style="flex: 2;">
                 <div class="iframe-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!4v1728451828191!6m8!1m7!1sCAoSLEFGMVFpcFBlbGVwOXdXT2lKSXBzSWFDRXRVZzRJU0lCTEVEaTk3M3Fkd0FV!2m2!1d13.01014669802442!2d77.57949805771193!3f342.2301172217999!4f4.343679401076855!5f0.7820865974627469" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div class="about-content">
-                    <h1>Gayatri Vihar Banquet</h1>
                 </div>
             </div>
 
@@ -162,7 +158,6 @@
             </button>
         </div>
     </section>
-
     <section id="amenities" class="amenities-section">
         <h2>Amenities</h2>
         <div class="amenities-grid">
@@ -202,13 +197,105 @@
             </button>
         </div>
     </section>
-
+    <section id="review">
+        <div class="reviews-container">
+            <div class="rating-header">
+                <h2>4.0</h2>
+                <div class="star-rating">
+                    ★★★★☆
+                    <span>35k ratings</span>
+                </div>
+            </div>
+        
+            <div class="rating-bars">
+                <div class="bar-row">
+                    <span class="bar-label">5.0</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 80%;"></div>
+                    </div>
+                    <span class="bar-value">14K reviews</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">4.0</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 60%;"></div>
+                    </div>
+                    <span class="bar-value">6K reviews</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">3.0</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 40%;"></div>
+                    </div>
+                    <span class="bar-value">4K reviews</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">2.0</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 20%;"></div>
+                    </div>
+                    <span class="bar-value">800 reviews</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">1.0</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 10%;"></div>
+                    </div>
+                    <span class="bar-value">9K reviews</span>
+                </div>
+            </div>
+        
+            <div class="tags">
+                <div class="tag">4.0 Cleanliness</div>
+                <div class="tag">4.0 Safety & Security</div>
+                <div class="tag">4.0 Staff</div>
+                <div class="tag">3.5 Amenities</div>
+                <div class="tag">3.0 Location</div>
+            </div>
+        
+            <div class="review">
+                <div class="review-header">
+                    <img src="./images/pfp1.jpg" alt="Profile Picture">
+                    <h4>Balwinder singh</h4>
+                    <div class="review-rating">
+                        ★★★★★
+                        <span>4 months ago</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    Easy booking, great value! Cozy rooms at a reasonable price in Sheffield's vibrant center. Surprisingly quiet
+                    with nearby Traveller's accommodations. Highly recommended!
+                </div>
+                <div class="review-images">
+                    <img src="https://via.placeholder.com/50" alt="Room 1">
+                    <img src="https://via.placeholder.com/50" alt="Room 2">
+                    <img src="https://via.placeholder.com/50" alt="Room 3">
+                    <img src="https://via.placeholder.com/50" alt="Room 4">
+                </div>
+            </div>
+        
+            <div class="review">
+                <div class="review-header">
+                    <img src="./images/pfp2.jpg" alt="Profile Picture">
+                    <h4>Rajendra bhalla</h4>
+                    <div class="review-rating">
+                        ★★★★☆
+                        <span>4 months ago</span>
+                    </div>
+                </div>
+                <div class="review-body">
+                    Effortless booking, unbeatable affordability! Small yet comfortable rooms in the heart of Sheffield's
+                    nightlife hub. Surrounded by elegant housing, it's a peaceful gem. Thumbs up!
+                </div>
+            </div>
+        
+            <a href="#" class="view-all">Read all reviews</a>
+        </div>
+    </section>
     <footer>
         <p>&copy; 2024 Gayatri Vihar Banquet. All rights reserved.</p>
     </footer>
-
     <script>
-        // JavaScript for Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
             const menuIcon = document.getElementById('menuIcon');
             const navLinks = document.querySelector('.nav-links');
@@ -218,24 +305,15 @@
             });
         });
 
-        function scrollLeft(containerClass) {
-            const container = document.querySelector(containerClass);
-            container.scrollBy({
-                top: 0,
-                left: -300,
-                behavior: 'smooth'
-            });
-        }
+        function scrollLeft(container) {
+    const element = document.querySelector(container);
+    element.scrollBy({ left: -300, behavior: 'smooth' });
+}
 
-        function scrollRight(containerClass) {
-            const container = document.querySelector(containerClass);
-            container.scrollBy({
-                top: 0,
-                left: 300,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-    
+function scrollRight(container) {
+    const element = document.querySelector(container);
+    element.scrollBy({ left: 300, behavior: 'smooth' });
+}
+    </script>  
 </body>
 </html>
