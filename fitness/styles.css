@@ -1,10 +1,9 @@
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 60px;
 }
 
-* {scroll-behavior: smooth;
+* {
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
@@ -12,26 +11,27 @@ html {
 }
 
 body {
-    background-color: #0C0C1A;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #0C0C1A 0%, #1A1A2E 100%);
     color: #B3B3B3;
-    line-height: 1.6;
+    scroll-behavior: smooth;
+    scroll-padding-top: 60px; 
 }
-
-/* Typography */
 h1, h2, h3 {
     color: #FFFFFF;
-    margin-bottom: 10px;
 }
 
 h2 {
     font-size: 2.5em;
+    animation: fadeInDown 1s ease;
 }
 
 p {
     font-size: 1em;
 }
 
-/* Header & Navbar */
 header {
     display: flex;
     justify-content: space-between;
@@ -45,10 +45,16 @@ header {
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease;
 }
 
 .logo img {
     width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
 }
 
 nav ul {
@@ -93,42 +99,41 @@ nav ul li a:hover::after {
 }
 
 .menu-icon img {
-    width: 30px; /* Adjust icon size */
-    height: auto;
+    width: 30px;
 }
 
-
-/* VR Tour and About Section */
 .vr-about-section {
     padding: 100px 20px;
+    animation: fadeInUp 3s ease;
 }
-
 .content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 30px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
+}
+
+.iframe-container,
+.about-content {
+    flex: 1;
+    max-width: 45%;
 }
 
 .iframe-container {
-    flex: 1; /* Let the iframe container take up 50% of the space */
-    max-width: 45%; /* Ensures it doesn’t stretch too far */
-    overflow: hidden; /* Ensures the rounded corners are effective */
-    border-radius: 15px; /* Adjust the value as needed */
+    overflow: hidden;
+    border-radius: 15px;
     margin: auto;
 }
 
 .iframe-container iframe {
-    width: 100%; /* Ensure iframe fills its container */
-    height: 100%; /* Make iframe responsive */
-    border: 0; /* Remove any border */
-    aspect-ratio: 16/9; /* Maintain a responsive aspect ratio */
+    width: 100%;
+    height: 100%;
+    border: 0;
+    aspect-ratio: 16/9;
 }
 
 .about-content {
-    flex: 1; /* Let the about content take up 50% of the space */
-    max-width: 45%;
     padding-left: 20px;
     color: #FFFFFF;
     display: flex;
@@ -136,16 +141,14 @@ nav ul li a:hover::after {
     justify-content: center;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .content-wrapper {
-        flex-direction: column; /* Stack vertically on smaller screens */
+        flex-direction: column;
     }
     .iframe-container, .about-content {
-        max-width: 100%; /* Full width on small screens */
+        max-width: 100%;
     }
 }
-
 
 .gym-header {
     display: flex;
@@ -182,10 +185,10 @@ nav ul li a:hover::after {
     color: #ffcc00;
 }
 
-/* Workouts and Amenities Section */
 .workout-amenities-section {
     padding: 40px 20px;
     background-color: #171329;
+    animation: fadeIn 2s ease;
 }
 
 .section-heading h2 {
@@ -194,39 +197,33 @@ nav ul li a:hover::after {
     margin-bottom: 20px;
 }
 
-.workouts-container {
-    position: relative; /* Allow absolute positioning of buttons */
-    overflow: hidden; /* Prevent any overflow */
-    padding: 20px 0; /* Space for buttons */
-}
-
-.workouts-grid {
-    overflow-x: auto; /* Enable horizontal scroll */
-    white-space: nowrap; /* Prevent wrapping */
-    scroll-behavior: smooth; /* Smooth scrolling */
+.workouts-container, .amenities-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
 .workouts-grid, .amenities-grid {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Enable horizontal scroll */
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* For Firefox */
-    white-space: nowrap; /* Keep items inline */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .workout-item, .amenity-item {
     text-align: center;
     flex-basis: 19%;
-    flex: 0 0 150px; /* Keep a fixed width per item */
+    flex: 0 0 150px;
     margin: 10px;
-    text-align: center;
-    white-space: normal; /* Allow text to wrap inside items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.workout-item:hover, .amenity-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(131, 141, 143, 0.555);
+    animation: fadeIn 1s ease;
 }
 
 .workout-item img, .amenity-item img {
@@ -234,18 +231,9 @@ nav ul li a:hover::after {
     margin-bottom: 10px;
 }
 
-/* Amenities Horizontal Scroll */
-.amenities-container {
-    position: relative;
-    overflow: hidden;
-    padding: 20px 0;
+.amenities-grid::-webkit-scrollbar,.workouts-grid::-webkit-scrollbar {
+    display: none;
 }
-
-
-.amenities-grid::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari */
-}
-
 
 .scroll-btn {
     position: absolute;
@@ -260,7 +248,6 @@ nav ul li a:hover::after {
 
 .scroll-btn img {
     width: 24px;
-    height: auto;
 }
 
 .left-btn {
@@ -271,8 +258,6 @@ nav ul li a:hover::after {
     right: 10px;
 }
 
-/* Packages Section */
-/* Packages Section */
 .packages-section {
     padding: 60px 20px;
     background-color: #171329;
@@ -293,6 +278,7 @@ nav ul li a:hover::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    animation: fadeIn 1s ease;
 }
 
 .package {
@@ -306,6 +292,7 @@ nav ul li a:hover::after {
 .package:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px #00D4FF;
+
 }
 
 .package h3 {
@@ -327,23 +314,21 @@ nav ul li a:hover::after {
     color: #00D4FF;
 }
 
-/* Discounted price styling */
 .discount {
     text-decoration: line-through;
-    color: #B0B0B0; /* Light Gray for crossed-out price */
+    color: #B0B0B0;
     margin-left: 10px;
 }
 
-/* Offer selection styling */
 .offer-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Semi-transparent gray border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     cursor: pointer;
-    color: #B0B0B0; /* Light Gray for secondary text */
+    color: #B0B0B0;
 }
 
 .offer-option input[type="radio"] {
@@ -351,19 +336,18 @@ nav ul li a:hover::after {
 }
 
 .offer-option:hover {
-    background-color: #1F2A44; /* Lighter Dark Slate */
+    background-color: #1F2A44;
 }
 
 .offer-option.selected {
-    border: 2px solid #00BFFF; /* Bright Aqua when selected */
-    background-color: #1F2A44; /* Lighter Dark Slate */
+    border: 2px solid #00BFFF;
+    background-color: #1F2A44;
 }
 
-/* Proceed to Checkout Button */
 .checkout-button {
     display: inline-block;
-    background-color: #00D4FF; /* Bright Aqua */
-    color: #0C0C1A; /* Dark text */
+    background-color: #00D4FF;
+    color: #0C0C1A;
     padding: 15px 30px;
     border: none;
     border-radius: 50px;
@@ -376,7 +360,7 @@ nav ul li a:hover::after {
 }
 
 .checkout-button:hover {
-    background-color: #0099CC; /* Deeper Aqua on hover */
+    background-color: #0099CC;
 }
 
 .checkout-button:focus {
@@ -387,24 +371,6 @@ input[type="radio"] {
     display: none;
 }
 
-/* Responsive Styles for Packages Section */
-@media (max-width: 768px) {
-    .packages-section h2 {
-        font-size: 2em;
-    }
-    
-    .package-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-    .package ul li {
-        font-size: 1em;
-    }
-}
-
-/* Responsive Styles for Packages Section */
 @media (max-width: 768px) {
     .packages-section h2 {
         font-size: 2em;
@@ -422,7 +388,38 @@ input[type="radio"] {
 }
 
 
-/* Business Hours Section */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .business-hours {
     max-width: 1200px;
     margin: 0 auto;
@@ -467,13 +464,11 @@ input[type="radio"] {
     background-color: rgba(0, 212, 255, 0.1);
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
 }
 
-/* Back Button */
 .back-btn {
     display: inline-block;
     padding: 15px 30px;
@@ -491,43 +486,41 @@ footer {
     background-color: #0099CC;
 }
 
-/* Mobile Responsive Styling */
-@media (max-width: 768px) 
-{
-    /* Ensure the iframe stays responsive */
-.iframe-container {
-    position: relative;
-    width: 100%; /* Full width of the parent */
-    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
-    height: 0; /* Height will be controlled by padding */
-    overflow: hidden;
-}
+@media (max-width: 768px) {
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+    }
 
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0; /* Remove any border */
-}
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
 
     .content-wrapper {
         flex-direction: column;
     }
 
     .amenity-item {
-        flex: 0 0 120px; /* Reduce item size for smaller screens */
+        flex: 0 0 120px;
     }
 
     .package-grid {
-        grid-template-columns: 1fr; /* Single column layout for packages */
+        grid-template-columns: 1fr;
     }
+
     nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Below the header */
+        top: 60px;
         right: 0;
         background-color: #0C0C1A;
         width: 100%;
@@ -535,17 +528,14 @@ iframe {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Show nav when toggled */
     nav ul.nav-active {
         display: flex;
     }
 
-    /* Show hamburger icon */
     .menu-icon {
         display: block;
     }
     
-    /* Style for nav items when expanded */
     nav ul li {
         padding: 10px 0;
     }
@@ -557,30 +547,29 @@ iframe {
 
 @media (max-width: 480px) {
     .amenity-item {
-        flex: 0 0 100px; /* Further reduce item size on mobile */
+        flex: 0 0 100px;
     }
 }
 
-/* Contact Card Styles */
 .contact-card {
-    background-color: #1A1A2E; /* Dark Slate */
-    color: #EAEAEA; /* Soft White */
+    background-color: #1A1A2E;
+    color: #EAEAEA;
     padding: 20px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Soft Black */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Semi-Transparent Gray */
-    width: 100%; /* Full width of the parent */
-    margin: 20px 0; /* Vertical spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    margin: 20px 0;
 }
 
 .contact-card h3 {
     margin: 0;
     font-size: 1.5em;
-    color: #EAEAEA; /* Soft White */
-    flex: 1; /* Allow header to take available space */
+    color: #EAEAEA;
+    flex: 1;
 }
 
 .contact-info {
@@ -588,7 +577,7 @@ iframe {
     gap: 20px;
     align-items: center;
     font-size: 1.2em;
-    color: #B0B0B0; /* Light Gray for secondary text */
+    color: #B0B0B0;
 }
 
 .contact-info span {
@@ -597,10 +586,9 @@ iframe {
 }
 
 .contact-info span:hover {
-    color: #00BFFF; /* Bright Aqua on hover */
+    color: #00BFFF;
 }
 
-/* Responsive Styles for Contact Card */
 @media screen and (max-width: 768px) {
     .contact-card {
         display: none;

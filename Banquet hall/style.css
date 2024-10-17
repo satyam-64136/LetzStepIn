@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0C0C1A;
+    color: #B3B3B3;
+    overflow-x: hidden;
+}
+
+h1, h2 {
+    color: #FFFFFF;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    background-color: #0C0C1A;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    width: 150px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #00D4FF;
+}
+
+nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #00D4FF;
+    transition: all 0.3s ease;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.menu-icon img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    background-color: #171329;
+    margin-top: 100px;
+    border-radius: 12px;
+    min-height: calc(100vh - 140px);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #0C0C1A;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+.iframe-container {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: #2E2E4F;
+    height: 100%;
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 12px;
+    border: none;
+    min-height: 300px;
+}
+
+.availability-check-form {
+    flex: 1 1 50%;
+    max-width: 100%;
+    background-color: #1A1A2E;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    color: #EAEAEA;
+}
+
+.availability-check-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.availability-check-form label {
+    font-size: 12px;
+    color: #B0B0B0;
+}
+
+.availability-check-form input,
+.availability-check-form select {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #2E2E4F;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #FFFFFF;
+}
+
+.availability-check-form button {
+    background-color: #00BFFF;
+    color: #FFFFFF;
+    padding: 12px 0;
+    grid-column: span 2;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.availability-check-form button:hover {
+    background-color: #009ACD;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #EAEAEA;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #B0B0B0;
+    border-radius: 4px;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: #00BFFF;
+    animation: pulse 0.4s ease-in-out;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid #1A1A2E;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(0, 191, 255, 0);
+        transform: scale(1.1);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 191, 255, 0);
+        transform: scale(1);
+    }
+}
+
+.availability-check-form .full-width {
+    grid-column: span 2;
+}
+
+.services-grid, .amenities-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.service-item, .amenity-item {
+    text-align: center;
+    flex-basis: 19%;
+    flex: 0 0 150px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.service-item:hover, .amenity-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(131, 141, 143, 0.555);
+    animation: fadeIn 1s ease;
+}
+
+.service-item img, .amenity-item img {
+    max-width: 50px;
+    margin-bottom: 10px;
+}
+
+.service-item p, .amenity-item p {
+    color: #FFFFFF;
+    font-size: 1em;
+}
+.amenities-grid::-webkit-scrollbar,.service-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-btn img {
+    width: 30px;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.services-section, .amenities-section {
+    position: relative;
+    padding: 0 40px;
+}
+
+.services-grid::-webkit-scrollbar, .amenities-grid::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #0C0C1A;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .iframe-container,
+    .availability-check-form {
+        max-width: 100%;
+    }
+
+    nav ul {
+        list-style: none;
+    }
+}
