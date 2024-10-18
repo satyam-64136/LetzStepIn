@@ -281,24 +281,6 @@ iframe {
 .amenities-grid::-webkit-scrollbar-track, .services-grid::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.1);
 }
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-}
-.scroll-btn img {
-    width: 30px;
-}
-.left-btn {
-    left: 10px;
-}
-.right-btn {
-    right: 10px;
-}
 .services-section, .amenities-section {
     position: relative;
     padding: 0 40px;
